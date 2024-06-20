@@ -13,7 +13,14 @@ def home():
        
         model_inputs = format_model_input(form_input)
         prediction = Model().predict(model_inputs)
-        return render_template('index.html', prediction=prediction)
+
+        if prediction == 1:
+            prediction_label = "The customer will churn"
+
+        else:
+            prediction_label = "The customer will stay"
+
+        return render_template('index.html', prediction=prediction_label)
 
     return render_template('index.html')
 
