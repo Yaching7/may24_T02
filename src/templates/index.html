@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Insurance Charges</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div>
+        <h1>Customer Churn Prediction</h1>
+        <form method="POST">
+            <label for="tenure_months">Tenure Months:</label><br>
+            <input type="text" id="tenure_months" name="tenure_months" value="3"><br><br>
+
+            <label for="total_monthly_fee">Total Monthly Fee:</label><br>
+            <input type="text" id="total_monthly_fee" name="total_monthly_fee" value="83.9"><br><br>
+
+            <label for="age">Age:</label><br>
+            <input type="text" id="age" name="age" value="20"><br><br>
+
+            <label for="num_dependents">Number of Dependents:</label><br>
+            <input type="text" id="num_dependents" name="num_dependents" value="0"><br><br>
+
+            <label for="contract_type">Contract Type:</label><br>
+            <select name="contract_type" id="contract_type">
+                <option value="0" selected>Month-to-Month</option>
+                <option value="1">One Year</option>
+                <option value="2">Two Years</option>
+            </select><br><br>
+
+            <label for="payment_method">Payment Method:</label><br>
+            <select name="payment_method" id="payment_method">
+                <option value="0">Bank Withdrawal</option>
+                <option value="1" selected>Credit Card</option>
+                <option value="2">Mailed Check</option>
+            </select><br><br>
+
+            <label for="married">Marital Status:</label><br>
+            <select name="married" id="married">
+                <option value="0" selected>Not Married</option>
+                <option value="1">Married</option>
+            </select><br><br>
+            
+            <label for="zip_code">Zip Code:</label><br>
+            <input type="text" id="zip_code" name="zip_code" value="93010"><br><br>
+
+            <label for="num_referrals">Number of Referrals:</label><br>
+            <input type="text" id="num_referrals" name="num_referrals" value="0"><br><br>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        <!-- TODO 3: Add h2 element to display model prediction  -->
+        <!--         (Use Jinja templating with if condition)    -->
+        {% if prediction is defined %}
+        <h2>Model Prediction: {{ prediction }}</h2>
+    {% endif %}
+       
+    </div>
+</body>
+</html>
